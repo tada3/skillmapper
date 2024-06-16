@@ -65,7 +65,7 @@ func retrieveTags() (numberOfTagsRetrieved int, data []byte, err error) {
 	log.Printf("XXX retrieveTags %v", 0)
 	var b bytes.Buffer
 	q := bigQueryClient.Query(`
-		SELECTX tag_name FROM bigquery-public-data.stackoverflow.tags
+		SELECT tag_name FROM bigquery-public-data.stackoverflow.tags
 			ORDER BY tag_name limit 1`)
 	it, err := q.Read(ctxBg)
 	if err != nil {
